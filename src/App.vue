@@ -1,18 +1,20 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <p>{{ this.$store.state.name }}</p>
+    <p>{{ this.$store.state.age }}</p>
+    <p>{{ this.$store.getters.getHobbies }}</p>
+    <button @click="$store.commit('addAge', 1)">年龄加1</button>
+    <button @click="$store.dispatch('addHobby', 'basketball')">添加爱好</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  created() {
+    window.app = this
+  },
 }
 </script>
 
