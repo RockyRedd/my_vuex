@@ -59,7 +59,7 @@ class Store {
         mutations[type](this.state, payload)
       }
     })
-    const actions = options.actions
+    const actions = options.actions || {}
     this.actions = {}
     Object.keys(actions).forEach(type => {
       this.actions[type] = payload => {
